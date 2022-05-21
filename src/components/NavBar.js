@@ -1,37 +1,29 @@
 import logo from "../logo.svg";
+import CartWidget from "./CartWidget"
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 
 function NavBar() {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
-        <img
-          alt=""
-          src={logo}
-          width="30"
-          height="30"
-          className="d-inline-block align-top"
-        />{" "}
+        <img alt="" src={logo} width="40" height="40" className="d-inline-block align-top"/>{" "}
         <Navbar.Brand href="#">Mi tienda reactiva</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="#">Inicio</Nav.Link>
             <NavDropdown title="Categorías" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
+              <NavDropdown.Item href="#">Televisores</NavDropdown.Item>
+              <NavDropdown.Item href="#">Celulares y Tablets</NavDropdown.Item>
+              <NavDropdown.Item href="#">Notebooks</NavDropdown.Item>
+              {/* <NavDropdown.Divider /> */}
+              <NavDropdown.Item href="#">Camaras</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#link">Ofertas</Nav.Link>
-            <Nav.Link href="#link">Contacto</Nav.Link>
+            <Nav.Link href="#">Ofertas</Nav.Link>
+            <Nav.Link href="#">Contacto</Nav.Link>
           </Nav>
         </Navbar.Collapse>
+        <CartWidget/>
       </Container>
     </Navbar>
 
