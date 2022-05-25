@@ -6,7 +6,7 @@ export const ItemListContainer = ({ greeting }) => {
     <section className="container">
       <p className="fs-4 text-end">Bienvenido {greeting}</p>
       <h1>Lista de Productos</h1>
-      <Container className="d-flex justify-content-around">
+      <Container className="d-flex justify-content-center">
         <MyCard />
         <MyCard />
         <MyCard />
