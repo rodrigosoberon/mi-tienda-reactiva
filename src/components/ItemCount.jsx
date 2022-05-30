@@ -2,7 +2,7 @@ import { Container, Button } from "react-bootstrap";
 import { Plus, Dash } from "react-bootstrap-icons";
 import { useState } from "react";
 
-function ItemCount({ initial, available }) {
+function ItemCount({ initial, available, itemsCarrito, setItemsCarrito }) {
   let [counter, setCounter] = useState(initial);
   let [isPlusDisable, setPlusDisable] = useState(false);
   let [isDashDisable, setDashDisable] = useState(true);
@@ -30,6 +30,12 @@ function ItemCount({ initial, available }) {
     setPlusDisable(false);
   };
 
+
+// TODO: Armar logica para que no se puedan agregar mas items cuando ya se haya agregado la cantidad disponible de este item
+  const agregarCarrito = () => {
+    setItemsCarrito(itemsCarrito + counter)
+  }
+
   return (
     <Container className="my-3">
       <Container className="d-flex justify-content-around align-items-center">
@@ -42,7 +48,7 @@ function ItemCount({ initial, available }) {
         </Button>
       </Container>
       <Container className="d-flex justify-content-center">
-        <Button variant="dark" className="mt-3">
+        <Button variant="dark" className="mt-3" onClick={agregarCarrito}>
           Agregar al carrito
         </Button>
       </Container>
