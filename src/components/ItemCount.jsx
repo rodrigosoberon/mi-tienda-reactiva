@@ -31,7 +31,7 @@ function ItemCount({ initial, available, itemsCarrito, setItemsCarrito }) {
   };
 
 
-// TODO: Armar logica para que no se puedan agregar mas items cuando ya se haya agregado la cantidad disponible de este item
+// TODO: Armar logica para que NO se puedan agregar mas items cuando ya se haya agregado la cantidad total disponible de un item particular
   const agregarCarrito = () => {
     setItemsCarrito(itemsCarrito + counter)
   }
