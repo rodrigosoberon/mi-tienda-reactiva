@@ -1,0 +1,32 @@
+{
+  "productos": [
+    {
+      "id": "1",
+      "title": "Lenovo Tab K10",
+      "description": "PANTALLA: LCD 10,3\" Full HD+ DIMENSIONES Y PESO: 244 x 153 x 8,1 mm 460 g.",
+      "price": "25000",
+      "available": "4"
+    },
+    {
+      "id": "2",
+      "title": "Samsung Galaxy Tab A8",
+      "description": "PANTALLA: LCD 10,5\" WUXGA (1920 x 1200) DIMENSIONES Y PESO: 161.9 x 246.8 x 6.9 mm 508 g.",
+      "price": "41999",
+      "available": "3"
+    },
+    {
+      "id": "3",
+      "title": "Kindle E-Reader 10ma",
+      "description": "PANTALLA: 6\" 167p DIMENSIONES Y PESO: 160 x 113 x 8,7 mm 174 g.",
+      "price": "20900",
+      "available": "6"
+    },
+    {
+      "id": "4",
+      "title": "Ipad (9na Gen) 64GB",
+      "description": "PANTALLA: LCD 10,2\" Full HD+ DIMENSIONES Y PESO: 244 x 153 x 8,1 mm 460 g.",
+      "price": "90399",
+      "available": "1"
+    }
+  ]
+}

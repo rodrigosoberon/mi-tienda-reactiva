@@ -1,14 +1,24 @@
 import Item from "./Item";
 import { Container, Row } from "react-bootstrap";
-import image from "../images/tablet.jpg";
+import image from "../images/ipad.webp";
+import externo from "../productos.json";
 
-function ItemList({itemsCarrito, setItemsCarrito}) {
+function ItemList({ itemsCarrito, setItemsCarrito }) {
   return (
     <Container fluid>
       <Row>
-        <Item title={'Lenovo Tab K10'} description={'PANTALLA: LCD 10,3" Full HD+ DIMENSIONES Y PESO: 244 x 153 x 8,1 mm 460 g.'} price={25000} available={4} image={image} itemsCarrito={itemsCarrito} setItemsCarrito={setItemsCarrito}/>
-        <Item title={'Lenovo Tab K10'} description={'PANTALLA: LCD 10,3" Full HD+ DIMENSIONES Y PESO: 244 x 153 x 8,1 mm 460 g.'} price={25000} available={4} image={image} itemsCarrito={itemsCarrito} setItemsCarrito={setItemsCarrito}/>
-        <Item title={'Lenovo Tab K10'} description={'PANTALLA: LCD 10,3" Full HD+ DIMENSIONES Y PESO: 244 x 153 x 8,1 mm 460 g.'} price={25000} available={4} image={image} itemsCarrito={itemsCarrito} setItemsCarrito={setItemsCarrito}/>
+        {externo.productos.map((p) => (
+          <Item
+            key={p.id}
+            title={p.title}
+            description={p.description}
+            price={p.price}
+            available={p.available}
+            image={image}
+            itemsCarrito={itemsCarrito}
+            setItemsCarrito={setItemsCarrito}
+          />
+        ))}
       </Row>
     </Container>
   );
