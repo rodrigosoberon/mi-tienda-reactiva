@@ -1,12 +1,12 @@
-import logo from "../logo.svg";
-import CartWidget from "./CartWidget"
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import { Shop } from 'react-bootstrap-icons';
+import CartWidget from "./CartWidget";
 
-function NavBar() {
+function CustomNavbar({itemsCarrito}) {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
-        <img alt="" src={logo} width="40" height="40" className="d-inline-block align-top"/>{" "}
+        <Shop color="#0dcaf0" className="mx-3 fs-2"/>
         <Navbar.Brand href="#">Mi tienda reactiva</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -23,10 +23,10 @@ function NavBar() {
             <Nav.Link href="#">Contacto</Nav.Link>
           </Nav>
         </Navbar.Collapse>
-        <CartWidget/>
+        <CartWidget itemsCarrito={itemsCarrito}/>
       </Container>
     </Navbar>
   );
 }
 
-export default NavBar;
+export default CustomNavbar;

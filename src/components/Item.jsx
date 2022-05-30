@@ -1,8 +1,8 @@
-import { Card, Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import image from "../images/tablet.jpg";
 import ItemCount from "./ItemCount";
 
-function MyCard() {
+function Item() {
   return (
     <Card style={{ width: "18rem" }} className="m-2">
       <Card.Img variant="top" src={image} />
@@ -19,4 +19,4 @@ function MyCard() {
   );
 }
 
-export default MyCard;
+export default Item;
