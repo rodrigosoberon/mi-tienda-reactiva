@@ -1,38 +1,17 @@
-import Item from "./Item";
+import ItemCard from "./ItemCard";
 import { Spinner, Container, Row } from "react-bootstrap";
-// import image from "../images/ipad.webp";
+
 import { pedirDatos } from "../mock/PedirDatos";
 import { useEffect, useState } from "react";
 
-function ItemList({ itemsCarrito, setItemsCarrito }) {
-  const [productos, setProductos] = useState([]);
-  const [loading, setLoading] = useState(true);
+function ItemList({ items, itemsCarrito, setItemsCarrito }) {
 
-  useEffect(() => {
-    setLoading(true);
-
-    pedirDatos()
-      .then((datos) => {
-        setProductos(datos);
-      })
-      .catch((error) => {
-        console.log("Se produjo el error: ", error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, []);
 
   return (
     <Container fluid>
       <Row className="justify-content-center">
-        {loading ? (
-          <Spinner animation="border" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </Spinner>
-        ) : (
-          productos.map((p) => (
-            <Item
+        {items.map((p) => (
+            <ItemCard
               key={p.id}
               title={p.title}
               description={p.description}
@@ -43,7 +22,7 @@ function ItemList({ itemsCarrito, setItemsCarrito }) {
               setItemsCarrito={setItemsCarrito}
             />
           ))
-        )}
+        }
       </Row>
     </Container>
   );
