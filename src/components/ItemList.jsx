@@ -8,6 +8,7 @@ function ItemList({ items, itemsCarrito, setItemsCarrito }) {
         {items.map((p) => (
           <ItemCard
             key={p.id}
+            id = {p.id}
             title={p.title}
             description={p.description}
             price={p.price}

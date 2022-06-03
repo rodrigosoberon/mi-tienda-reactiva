@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
-import { pedirDatos } from '../mock/PedirDatos';
-import ItemDetail from './ItemDetail'
-import {useParams} from 'react-router-dom'
-import {Spinner} from 'react-bootstrap'
+import { useState, useEffect } from "react";
+import { pedirDatos } from "../mock/PedirDatos";
+import ItemDetail from "./ItemDetail";
+import { useParams } from "react-router-dom";
+import { Spinner, Container } from "react-bootstrap";
 
-function ItemDetailContainer({itemsCarrito, setItemsCarrito}) {
+function ItemDetailContainer({ itemsCarrito, setItemsCarrito }) {
   const [item, setItem] = useState(null);
   const [loading, setLoading] = useState(true);
   const { itemId } = useParams(); // * Capturo el numero de la url
@@ -18,7 +18,7 @@ function ItemDetailContainer({itemsCarrito, setItemsCarrito}) {
         console.log(item);
       })
       .catch((error) => {
-        console.log('ERROR', error);
+        console.log("ERROR", error);
       })
       .finally(() => {
         setLoading(false);
@@ -26,15 +26,19 @@ function ItemDetailContainer({itemsCarrito, setItemsCarrito}) {
   }, []);
 
   return (
-    <section className='container-fluid'>
+    <Container className="m-5">
       {loading ? (
-        <Spinner animation='border' role='status'>
-          <span className='visually-hidden'>Loading...</span>
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
         </Spinner>
       ) : (
-        <ItemDetail item={item} itemsCarrito={itemsCarrito} setItemsCarrito={setItemsCarrito} />
+        <ItemDetail
+          item={item}
+          itemsCarrito={itemsCarrito}
+          setItemsCarrito={setItemsCarrito}
+        />
       )}
-    </section>
+    </Container>
   );
 }
 
