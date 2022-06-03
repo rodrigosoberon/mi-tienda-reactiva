@@ -1,6 +1,6 @@
 import Item from "./Item";
 import { Spinner, Container, Row } from "react-bootstrap";
-import image from "../images/ipad.webp";
+// import image from "../images/ipad.webp";
 import { pedirDatos } from "../mock/PedirDatos";
 import { useEffect, useState } from "react";
 
@@ -38,7 +38,7 @@ function ItemList({ itemsCarrito, setItemsCarrito }) {
               description={p.description}
               price={p.price}
               available={p.available}
-              image={image}
+              image={p.image}
               itemsCarrito={itemsCarrito}
               setItemsCarrito={setItemsCarrito}
             />
