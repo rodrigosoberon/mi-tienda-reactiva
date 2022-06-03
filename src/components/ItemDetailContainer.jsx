@@ -4,7 +4,7 @@ import ItemDetail from './ItemDetail'
 import {useParams} from 'react-router-dom'
 import {Spinner} from 'react-bootstrap'
 
-function ItemDetailContainer() {
+function ItemDetailContainer({itemsCarrito, setItemsCarrito}) {
   const [item, setItem] = useState(null);
   const [loading, setLoading] = useState(true);
   const { itemId } = useParams(); // * Capturo el numero de la url
@@ -14,7 +14,8 @@ function ItemDetailContainer() {
 
     pedirDatos()
       .then((resp) => {
-        setItem(resp.find((item) => item.id === Number(itemId)));
+        setItem(resp.find((item) => item.id === itemId));
+        console.log(item);
       })
       .catch((error) => {
         console.log('ERROR', error);
@@ -31,7 +32,7 @@ function ItemDetailContainer() {
           <span className='visually-hidden'>Loading...</span>
         </Spinner>
       ) : (
-        <ItemDetail item={item} />
+        <ItemDetail item={item} itemsCarrito={itemsCarrito} setItemsCarrito={setItemsCarrito} />
       )}
     </section>
   );

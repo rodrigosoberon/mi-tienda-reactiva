@@ -20,7 +20,6 @@ function ItemListContainer({ itemsCarrito, setItemsCarrito }) {
           setItems(resp);
         } else {
           setItems(resp.filter((item) => item.category === categoryId));
-          console.log(items);
         }
       })
       .catch((error) => {
