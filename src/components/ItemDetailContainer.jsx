@@ -15,7 +15,7 @@ function ItemDetailContainer({ itemsCarrito, setItemsCarrito }) {
     pedirDatos()
       .then((resp) => {
         setItem(resp.find((item) => item.id === itemId));
-        console.log(item);
+        // console.log(item);
       })
       .catch((error) => {
         console.log("ERROR", error);

@@ -8,32 +8,39 @@ function CustomNavbar({ itemsCarrito }) {
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
         <Shop color="#0dcaf0" className="mx-3 fs-2" />
-        <Link to="/">
-          <Navbar.Brand>Mi Tienda</Navbar.Brand>
-        </Link>
+          <Navbar.Brand as={Link} to="/">Mi Tienda</Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Link to="/"><Nav.Link href="Inicio">Inicio</Nav.Link></Link>
+            <Nav.Link as={Link} to="/">
+              Inicio
+            </Nav.Link>
             <NavDropdown title="Categorías" id="basic-nav-dropdown">
-              <Link to="/categorias/televisores">
-                <NavDropdown.Item href="Televisores">Televisores</NavDropdown.Item>
-              </Link>
-              <Link to="/categorias/tablets">
-                <NavDropdown.Item href="Tablets">Tablets</NavDropdown.Item>
-              </Link>
-              <Link to="/categorias/notebooks">
-                <NavDropdown.Item href="Notebooks">Notebooks</NavDropdown.Item>
-              </Link>
-              <Link to="/categorias/celulares">
-                <NavDropdown.Item href="Celulares">Celulares</NavDropdown.Item>
-              </Link>
-              {/* <NavDropdown.Divider /> */}
+              <NavDropdown.Item as={Link} to="/categorias/televisores">
+                Televisores
+              </NavDropdown.Item>
+
+              <NavDropdown.Item as={Link} to="/categorias/tablets">
+                Tablets
+              </NavDropdown.Item>
+
+              <NavDropdown.Item as={Link} to="/categorias/notebooks">
+                Notebooks
+              </NavDropdown.Item>
+
+              <NavDropdown.Item
+                as={Link}
+                to="/categorias/celulares"
+                href="Celulares"
+              >
+                Celulares
+              </NavDropdown.Item>
             </NavDropdown>
             <Nav.Link href="#">Ofertas</Nav.Link>
-            <Link to="/contacto"><Nav.Link href="Contacto">Contacto</Nav.Link>
-            </Link>
+            <Nav.Link as={Link} to="/contacto" href="Contacto">
+              Contacto
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
         <CartWidget itemsCarrito={itemsCarrito} />
