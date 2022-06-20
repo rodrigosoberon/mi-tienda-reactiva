@@ -1,23 +1,24 @@
 import { Cart, CartFill } from "react-bootstrap-icons";
 import { Container, Badge } from "react-bootstrap";
-import {CartContext, useCartContext} from '../context/cartContext'
+import { CartContext, useCartContext } from "../context/CartContext";
+import { Link } from "react-router-dom";
 
 function CartWidget() {
-  const {totalQuantity} = useCartContext()
+  const { totalQuantity } = useCartContext();
   if (totalQuantity()) {
     return (
-      <div>
+      <Link to="/cart">
         <CartFill color="AliceBlue" size={26} />
         <span className="position-absolute translate-middle badge rounded-pill bg-info text-dark">
           {totalQuantity()}
         </span>
-      </div>
+      </Link>
     );
   } else {
     return (
-      <div>
+      <Link to="/cart">
         <Cart color="AliceBlue" size={26} />
-      </div>
+      </Link>
     );
   }
 }

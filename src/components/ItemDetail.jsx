@@ -1,7 +1,7 @@
 import ItemCount from "./ItemCount";
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { CartContext } from "../context/cartContext";
+import { CartContext } from "../context/CartContext";
 import { useContext, useState } from "react";
 
 function ItemDetail({ item }) {
@@ -25,7 +25,7 @@ function ItemDetail({ item }) {
       <h3>{`$ ${item.price}`}</h3>
 
       {isInCart(item.id) ? (
-        <Link to="/">Terminar compra</Link>
+        <Link to="/cart">Terminar compra</Link>
       ) : (
         <ItemCount
           available={item.available}
