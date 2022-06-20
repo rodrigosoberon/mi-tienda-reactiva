@@ -8,7 +8,9 @@ function CustomNavbar({ itemsCarrito }) {
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
         <Shop color="#0dcaf0" className="mx-3 fs-2" />
-          <Navbar.Brand as={Link} to="/">Mi Tienda</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">
+          Mi Tienda
+        </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

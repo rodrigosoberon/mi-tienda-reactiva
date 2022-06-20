@@ -2,9 +2,10 @@ import CustomNavbar from "./components/CustomNavbar";
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import Contacto from "./components/Contacto";
+import Cart from "./components/Cart";
 import { useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { CartProvider } from "./context/cartContext";
+import { CartProvider } from "./context/CartContext";
 
 function App() {
   const [itemsCarrito, setItemsCarrito] = useState(0);
@@ -43,6 +44,7 @@ function App() {
           />
           <Route path="*" element={<Navigate to={"/"} />} />
           <Route path="/contacto" element={<Contacto />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </BrowserRouter>
     </CartProvider>
