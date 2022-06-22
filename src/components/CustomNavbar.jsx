@@ -19,22 +19,21 @@ function CustomNavbar({ itemsCarrito }) {
               Inicio
             </Nav.Link>
             <NavDropdown title="Categorías" id="basic-nav-dropdown">
-              <NavDropdown.Item as={Link} to="/categorias/televisores">
+              <NavDropdown.Item as={Link} to="/categorias/tv">
                 Televisores
               </NavDropdown.Item>
 
-              <NavDropdown.Item as={Link} to="/categorias/tablets">
+              <NavDropdown.Item as={Link} to="/categorias/tablet">
                 Tablets
               </NavDropdown.Item>
 
-              <NavDropdown.Item as={Link} to="/categorias/notebooks">
+              <NavDropdown.Item as={Link} to="/categorias/notebook">
                 Notebooks
               </NavDropdown.Item>
 
               <NavDropdown.Item
                 as={Link}
-                to="/categorias/celulares"
-                href="Celulares"
+                to="/categorias/phone"
               >
                 Celulares
               </NavDropdown.Item>
