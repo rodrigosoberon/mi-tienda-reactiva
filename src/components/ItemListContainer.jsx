@@ -2,8 +2,9 @@ import { Container } from "react-bootstrap";
 import ItemList from "./ItemList";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { pedirDatos } from "../mock/PedirDatos";
-import {Spinner} from 'react-bootstrap'
+import { Spinner } from "react-bootstrap";
+import { db } from "../firebase/config";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
 function ItemListContainer({ itemsCarrito, setItemsCarrito }) {
   const [items, setItems] = useState([]);
@@ -13,17 +14,20 @@ function ItemListContainer({ itemsCarrito, setItemsCarrito }) {
 
   useEffect(() => {
     setLoading(true);
-
-    pedirDatos()
+    const productosRef = collection(db, "items");
+    const q = categoryId
+      ? query(productosRef, where("category", "==", categoryId))
+      : productosRef;
+    getDocs(q)
       .then((resp) => {
-        if (!categoryId) {
-          setItems(resp);
-        } else {
-          setItems(resp.filter((item) => item.category === categoryId));
-        }
-      })
-      .catch((error) => {
-        console.log("ERROR", error);
+        const newItems = resp.docs.map((doc) => {
+          return {
+            id: doc.id,
+            ...doc.data(),
+          };
+        });
+        console.log(newItems);
+        setItems(newItems);
       })
       .finally(() => {
         setLoading(false);
@@ -37,7 +41,11 @@ function ItemListContainer({ itemsCarrito, setItemsCarrito }) {
           <span className="visually-hidden">Loading...</span>
         </Spinner>
       ) : (
-        <ItemList items={items} itemsCarrito={itemsCarrito} setItemsCarrito={setItemsCarrito}/>
+        <ItemList
+          items={items}
+          itemsCarrito={itemsCarrito}
+          setItemsCarrito={setItemsCarrito}
+        />
       )}
     </Container>
   );
