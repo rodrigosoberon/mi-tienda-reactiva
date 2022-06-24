@@ -27,6 +27,7 @@ function Cart() {
                 ))
             }
             <h4>Total compra: ${totalPrice()}</h4>
+            <Link to="/checkout">Finalizar compra</Link>
         </Container>
      );
 }
