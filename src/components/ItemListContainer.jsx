@@ -26,7 +26,6 @@ function ItemListContainer({ itemsCarrito, setItemsCarrito }) {
             ...doc.data(),
           };
         });
-        console.log(newItems);
         setItems(newItems);
       })
       .finally(() => {

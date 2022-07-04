@@ -4,8 +4,10 @@ import { useState } from "react";
 
 function ItemCount({ available, setCounter, counter, handleAgregar}) {
 
-  let [isPlusDisable, setPlusDisable] = useState(false);
+  let [isPlusDisable, setPlusDisable] = useState(available == 1 ? true : false);
   let [isDashDisable, setDashDisable] = useState(true);
+
+
 
   const increment = () => {
     setDashDisable(false);
