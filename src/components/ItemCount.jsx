@@ -34,17 +34,17 @@ function ItemCount({ available, setCounter, counter, handleAgregar}) {
 // TODO: Armar logica para que NO se puedan agregar mas items cuando ya se haya agregado la cantidad total disponible de un item particular. Tendría que comprometer stock
 
   return (
-    <Container className="my-3">
-      <Container className="d-flex justify-content-around align-items-center">
-        <Button variant="dark" onClick={increment} disabled={isPlusDisable}>
-          <Plus />
-        </Button>
-        <h5>{counter}</h5>
+    <Container fluid className="">
+      <Container fluid className="d-flex justify-content-around align-items-center">
         <Button variant="dark" onClick={decrement} disabled={isDashDisable}>
           <Dash />
         </Button>
+        <h5>{counter}</h5>
+        <Button variant="dark" onClick={increment} disabled={isPlusDisable}>
+          <Plus />
+        </Button>
       </Container>
-      <Container className="d-flex justify-content-center">
+      <Container fluid className="d-flex justify-content-center">
         <Button variant="dark" className="mt-3" onClick={handleAgregar}>
           Agregar al carrito
         </Button>

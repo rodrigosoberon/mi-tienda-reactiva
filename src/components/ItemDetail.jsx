@@ -1,5 +1,5 @@
 import ItemCount from "./ItemCount";
-import { Container } from "react-bootstrap";
+import { Container , Row} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import { useContext, useState } from "react";
@@ -18,7 +18,8 @@ function ItemDetail({ item }) {
   };
 
   return (
-    <Container className="m-5">
+    <Row md={{ span: 4, offset: 4 }} className="justify-content-center">
+    <Container fluid className="">
       <h2>{item.title}</h2>
       <img src={item.image} alt={item.nombre} />
       <p>{item.description}</p>
@@ -35,6 +36,7 @@ function ItemDetail({ item }) {
         />
       )}
     </Container>
+    </Row>
   );
 }
 

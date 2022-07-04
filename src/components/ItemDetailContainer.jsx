@@ -23,7 +23,7 @@ function ItemDetailContainer({ itemsCarrito, setItemsCarrito }) {
   }, []);
 
   return (
-    <Container className="m-5">
+    <Container fluid className="">
       {loading ? (
         <Spinner animation="border" role="status">
           <span className="visually-hidden">Loading...</span>
