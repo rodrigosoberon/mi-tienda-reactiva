@@ -18,7 +18,7 @@ function ItemCount({ available, setCounter, counter, handleAgregar}) {
   };
 
   const decrement = () => {
-    if (counter == 1 ) {
+    if (counter == 2 ) {
       setDashDisable(true);
     }
     if (counter > 0) {
@@ -30,12 +30,9 @@ function ItemCount({ available, setCounter, counter, handleAgregar}) {
     setPlusDisable(false);
   };
 
-
-// TODO: Armar logica para que NO se puedan agregar mas items cuando ya se haya agregado la cantidad total disponible de un item particular. Tendría que comprometer stock
-
   return (
     <Container fluid className="">
-      <Container fluid className="d-flex justify-content-around align-items-center">
+      <Container fluid className="d-flex justify-content-around align-items-center p-0">
         <Button variant="dark" onClick={decrement} disabled={isDashDisable}>
           <Dash />
         </Button>
@@ -44,6 +41,7 @@ function ItemCount({ available, setCounter, counter, handleAgregar}) {
           <Plus />
         </Button>
       </Container>
+
       <Container fluid className="d-flex justify-content-center">
         <Button variant="dark" className="mt-3" onClick={handleAgregar}>
           Agregar al carrito

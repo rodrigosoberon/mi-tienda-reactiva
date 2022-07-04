@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
-import { Spinner, Container } from "react-bootstrap";
+import { Spinner, Container, Row, Col } from "react-bootstrap";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase/config";
 
-function ItemDetailContainer({ itemsCarrito, setItemsCarrito }) {
+function ItemDetailContainer() {
   const [item, setItem] = useState(null);
   const [loading, setLoading] = useState(true);
   const { itemId } = useParams(); // * Capturo el numero de la url
@@ -23,18 +23,18 @@ function ItemDetailContainer({ itemsCarrito, setItemsCarrito }) {
   }, []);
 
   return (
-    <Container fluid className="">
-      {loading ? (
-        <Spinner animation="border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>
-      ) : (
-        <ItemDetail
-          item={item}
-          itemsCarrito={itemsCarrito}
-          setItemsCarrito={setItemsCarrito}
-        />
-      )}
+    <Container fluid className="mt-3">
+      <Row className="justify-content-center">
+        <Col sm={8} md={4} lg={3}>
+          {loading ? (
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          ) : (
+            <ItemDetail item={item} />
+          )}
+        </Col>
+      </Row>
     </Container>
   );
 }
