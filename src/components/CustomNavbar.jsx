@@ -13,7 +13,7 @@ function CustomNavbar({ itemsCarrito }) {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Shop color="#0dcaf0" size={36} className="mx-3" />
             <Navbar.Brand as={Link} to="/">
-              Mi Tienda
+              Mi tienda reactiva
             </Navbar.Brand>
 
             <Navbar.Collapse id="basic-navbar-nav">

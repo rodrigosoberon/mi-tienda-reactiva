@@ -34,7 +34,7 @@ function Cart() {
         </Container>
       ))}
       <h4>Total compra: ${Math.round(totalPrice())}</h4>
-      <Link to="/checkout">Finalizar compra</Link>
+      <Button as={Link} to="/checkout">Finalizar compra</Button>
     </Container>
   );
 }

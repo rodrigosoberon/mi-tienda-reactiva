@@ -8,7 +8,7 @@ import { db } from "../firebase/config";
 function ItemDetailContainer() {
   const [item, setItem] = useState(null);
   const [loading, setLoading] = useState(true);
-  const { itemId } = useParams(); // * Capturo el numero de la url
+  const { itemId } = useParams();
 
   useEffect(() => {
     setLoading(true);
