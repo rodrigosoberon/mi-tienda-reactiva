@@ -4,7 +4,6 @@ import {Link} from "react-router-dom"
 
 function Cart() {
     const {cart, totalPrice, removeItem} = useCartContext();
-    console.log(cart);
     if(cart.length === 0) return (
         <Container>
             <h2>Carrito de compras vacío</h2>

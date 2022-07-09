@@ -1,5 +1,5 @@
 import ItemCount from "./ItemCount";
-import { Container, Row, Alert } from "react-bootstrap";
+import { Container, Row, Alert, Badge } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 import { useContext, useState } from "react";
@@ -19,8 +19,11 @@ function ItemDetail({ item }) {
 
   return (
     <Row>
-      <h2>{item.title}</h2>
-      <img src={item.image} alt={item.nombre} />
+      <h2>
+        {item.title}
+        {item.discount && <Badge className="ms-1" bg="info">{item.discount}% off!</Badge>}
+        </h2>
+      <img src={item.image} alt={item.title} />
       <p className="py-2 fs-5">{item.description}</p>
       <h3 className="fs-2 text-center bg-secondary text-light py-2">{`$ ${item.price}`}</h3>
       <Container fluid className="my-3">

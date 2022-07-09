@@ -6,7 +6,7 @@ import { Spinner } from "react-bootstrap";
 import { db } from "../firebase/config";
 import { collection, getDocs, query, where } from "firebase/firestore";
 
-function ItemListContainer({ itemsCarrito, setItemsCarrito }) {
+function ItemListContainer() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -42,8 +42,6 @@ function ItemListContainer({ itemsCarrito, setItemsCarrito }) {
       ) : (
         <ItemList
           items={items}
-          itemsCarrito={itemsCarrito}
-          setItemsCarrito={setItemsCarrito}
         />
       )}
     </Container>
