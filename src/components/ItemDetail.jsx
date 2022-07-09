@@ -5,14 +5,14 @@ import { CartContext } from "../context/CartContext";
 import { useContext, useState } from "react";
 
 function ItemDetail({ item }) {
-  const { addItem, isInCart, cart } = useContext(CartContext);
+  const { addItem, isInCart } = useContext(CartContext);
 
-  const [cantidad, setCantidad] = useState(1);
+  const [quantity, setquantity] = useState(1);
 
   const handleAgregar = () => {
     const itemToCart = {
       ...item,
-      cantidad,
+      quantity,
     };
     addItem(itemToCart);
   };
@@ -53,8 +53,8 @@ function ItemDetail({ item }) {
         ) : item.available ? (
           <ItemCount
             available={item.available}
-            counter={cantidad}
-            setCounter={setCantidad}
+            counter={quantity}
+            setCounter={setquantity}
             handleAgregar={handleAgregar}
           />
         ) : (

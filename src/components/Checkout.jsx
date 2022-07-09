@@ -35,9 +35,9 @@ function Checkout() {
 
     const orden = {
       buyer: values,
-      items: cart.map(({ id, cantidad, title, price }) => ({
+      items: cart.map(({ id, quantity, title, price }) => ({
         id,
-        cantidad,
+        quantity,
         title,
         price,
       })),
@@ -62,9 +62,9 @@ function Checkout() {
     productos.docs.forEach((doc) => {
       const itemToUpdate = cart.find((prod) => prod.id === doc.id);
 
-      if (doc.data().available - itemToUpdate.cantidad >= 0) {
+      if (doc.data().available - itemToUpdate.quantity >= 0) {
         batch.update(doc.ref, {
-          available: doc.data().available - itemToUpdate.cantidad,
+          available: doc.data().available - itemToUpdate.quantity,
         });
       } else {
         outOfStock.push(itemToUpdate);
