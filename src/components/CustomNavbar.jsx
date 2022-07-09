@@ -38,7 +38,7 @@ function CustomNavbar({ itemsCarrito }) {
                     Celulares
                   </NavDropdown.Item>
                 </NavDropdown>
-                <Nav.Link href="#">Ofertas</Nav.Link>
+                <Nav.Link as={Link} to="/categorias/ofertas">Ofertas</Nav.Link>
                 <Nav.Link as={Link} to="/contacto" href="Contacto">
                   Contacto
                 </Nav.Link>
