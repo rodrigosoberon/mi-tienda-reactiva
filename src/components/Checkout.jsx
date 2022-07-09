@@ -33,24 +33,11 @@ function Checkout() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (values.nombre.length < 5) {
-      alert("El nombre es demasiado corto");
-      return;
-    }
-    if (values.email.length < 5) {
-      alert("El email es inválido");
-      return;
-    }
-    if (values.direccion.length < 5) {
-      alert("La dirección no es correcta");
-      return;
-    }
-
     const orden = {
       buyer: values,
-      items: cart.map(({ id, cantidad, title, price }) => ({
+      items: cart.map(({ id, quantity, title, price }) => ({
         id,
-        cantidad,
+        quantity,
         title,
         price,
       })),
@@ -75,9 +62,9 @@ function Checkout() {
     productos.docs.forEach((doc) => {
       const itemToUpdate = cart.find((prod) => prod.id === doc.id);
 
-      if (doc.data().available - itemToUpdate.cantidad >= 0) {
+      if (doc.data().available - itemToUpdate.quantity >= 0) {
         batch.update(doc.ref, {
-          available: doc.data().available - itemToUpdate.cantidad,
+          available: doc.data().available - itemToUpdate.quantity,
         });
       } else {
         outOfStock.push(itemToUpdate);
@@ -101,7 +88,8 @@ function Checkout() {
       <div className="container my-5">
         <h2>Gracias por su compra!</h2>
         <hr />
-        <p>Su número de orden es: {orderId}</p>
+        <p>Su número de orden es:</p>
+        <h3>{orderId}</h3>
       </div>
     );
   }
@@ -125,6 +113,7 @@ function Checkout() {
             onChange={handleInputChange}
             type="text"
             placeholder="Juan Perez"
+            required
           />
         </Form.Group>
 
@@ -134,8 +123,9 @@ function Checkout() {
             value={values.email}
             name="email"
             onChange={handleInputChange}
-            type={"text"}
+            type={"email"}
             placeholder="email@email.com"
+            required
           />
         </Form.Group>
 
@@ -147,6 +137,7 @@ function Checkout() {
             onChange={handleInputChange}
             type={"text"}
             placeholder="Dirección de envío"
+            required
           />
         </Form.Group>
 

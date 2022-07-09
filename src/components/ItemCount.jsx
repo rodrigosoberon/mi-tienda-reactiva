@@ -4,8 +4,10 @@ import { useState } from "react";
 
 function ItemCount({ available, setCounter, counter, handleAgregar}) {
 
-  let [isPlusDisable, setPlusDisable] = useState(false);
+  let [isPlusDisable, setPlusDisable] = useState(available == 1 ? true : false);
   let [isDashDisable, setDashDisable] = useState(true);
+
+
 
   const increment = () => {
     setDashDisable(false);
@@ -18,7 +20,7 @@ function ItemCount({ available, setCounter, counter, handleAgregar}) {
   };
 
   const decrement = () => {
-    if (counter == 1 ) {
+    if (counter == 2 ) {
       setDashDisable(true);
     }
     if (counter > 0) {
@@ -30,21 +32,19 @@ function ItemCount({ available, setCounter, counter, handleAgregar}) {
     setPlusDisable(false);
   };
 
-
-// TODO: Armar logica para que NO se puedan agregar mas items cuando ya se haya agregado la cantidad total disponible de un item particular. Tendría que comprometer stock
-
   return (
-    <Container className="my-3">
-      <Container className="d-flex justify-content-around align-items-center">
-        <Button variant="dark" onClick={increment} disabled={isPlusDisable}>
-          <Plus />
-        </Button>
-        <h5>{counter}</h5>
+    <Container fluid className="">
+      <Container fluid className="d-flex justify-content-around align-items-center p-0">
         <Button variant="dark" onClick={decrement} disabled={isDashDisable}>
           <Dash />
         </Button>
+        <h5>{counter}</h5>
+        <Button variant="dark" onClick={increment} disabled={isPlusDisable}>
+          <Plus />
+        </Button>
       </Container>
-      <Container className="d-flex justify-content-center">
+
+      <Container fluid className="d-flex justify-content-center">
         <Button variant="dark" className="mt-3" onClick={handleAgregar}>
           Agregar al carrito
         </Button>

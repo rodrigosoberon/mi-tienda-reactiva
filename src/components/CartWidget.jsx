@@ -1,6 +1,5 @@
 import { Cart, CartFill } from "react-bootstrap-icons";
-import { Container, Badge } from "react-bootstrap";
-import { CartContext, useCartContext } from "../context/CartContext";
+import { useCartContext } from "../context/CartContext";
 import { Link } from "react-router-dom";
 
 function CartWidget() {

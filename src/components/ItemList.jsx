@@ -1,7 +1,7 @@
 import ItemCard from "./ItemCard";
 import { Container, Row } from "react-bootstrap";
 
-function ItemList({ items, itemsCarrito, setItemsCarrito }) {
+function ItemList({ items }) {
   return (
     <Container fluid>
       <Row className="justify-content-center">
@@ -14,8 +14,7 @@ function ItemList({ items, itemsCarrito, setItemsCarrito }) {
             price={p.price}
             available={p.available}
             image={p.image}
-            itemsCarrito={itemsCarrito}
-            setItemsCarrito={setItemsCarrito}
+            discount={p.discount}
           />
         ))}
       </Row>

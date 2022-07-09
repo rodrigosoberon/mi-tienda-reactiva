@@ -6,17 +6,18 @@ import { Spinner } from "react-bootstrap";
 import { db } from "../firebase/config";
 import { collection, getDocs, query, where } from "firebase/firestore";
 
-function ItemListContainer({ itemsCarrito, setItemsCarrito }) {
+function ItemListContainer() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
-
   const { categoryId } = useParams();
 
   useEffect(() => {
     setLoading(true);
     const productosRef = collection(db, "items");
     const q = categoryId
-      ? query(productosRef, where("category", "==", categoryId))
+      ? categoryId == "ofertas"
+        ? query(productosRef, where("discount", ">", 0))
+        : query(productosRef, where("category", "==", categoryId))
       : productosRef;
     getDocs(q)
       .then((resp) => {
@@ -26,7 +27,6 @@ function ItemListContainer({ itemsCarrito, setItemsCarrito }) {
             ...doc.data(),
           };
         });
-        console.log(newItems);
         setItems(newItems);
       })
       .finally(() => {
@@ -41,11 +41,7 @@ function ItemListContainer({ itemsCarrito, setItemsCarrito }) {
           <span className="visually-hidden">Loading...</span>
         </Spinner>
       ) : (
-        <ItemList
-          items={items}
-          itemsCarrito={itemsCarrito}
-          setItemsCarrito={setItemsCarrito}
-        />
+        <ItemList items={items} />
       )}
     </Container>
   );

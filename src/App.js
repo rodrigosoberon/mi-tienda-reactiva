@@ -4,45 +4,21 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import Contacto from "./components/Contacto";
 import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
-import { useState } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
 
 function App() {
-  const [itemsCarrito, setItemsCarrito] = useState(0);
-
   return (
     <CartProvider>
       <BrowserRouter>
-        <CustomNavbar itemsCarrito={itemsCarrito} />
+        <CustomNavbar />
         <Routes>
-          <Route
-            path="/"
-            element={
-              <ItemListContainer
-                itemsCarrito={itemsCarrito}
-                setItemsCarrito={setItemsCarrito}
-              />
-            }
-          />
+          <Route path="/" element={<ItemListContainer />} />
           <Route
             path="/categorias/:categoryId"
-            element={
-              <ItemListContainer
-                itemsCarrito={itemsCarrito}
-                setItemsCarrito={setItemsCarrito}
-              />
-            }
+            element={<ItemListContainer />}
           />
-          <Route
-            path="/item/:itemId"
-            element={
-              <ItemDetailContainer
-                itemsCarrito={itemsCarrito}
-                setItemsCarrito={setItemsCarrito}
-              />
-            }
-          />
+          <Route path="/item/:itemId" element={<ItemDetailContainer />} />
           <Route path="*" element={<Navigate to={"/"} />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/cart" element={<Cart />} />
