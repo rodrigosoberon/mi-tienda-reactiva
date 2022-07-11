@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/mi-tienda-reactiva/static/css/main.38be36b0.css",
-    "main.js": "/mi-tienda-reactiva/static/js/main.08a5d800.js",
+    "main.js": "/mi-tienda-reactiva/static/js/main.3ebd2c49.js",
     "static/js/787.ab7dd4a3.chunk.js": "/mi-tienda-reactiva/static/js/787.ab7dd4a3.chunk.js",
     "index.html": "/mi-tienda-reactiva/index.html",
     "main.38be36b0.css.map": "/mi-tienda-reactiva/static/css/main.38be36b0.css.map",
-    "main.08a5d800.js.map": "/mi-tienda-reactiva/static/js/main.08a5d800.js.map",
+    "main.3ebd2c49.js.map": "/mi-tienda-reactiva/static/js/main.3ebd2c49.js.map",
     "787.ab7dd4a3.chunk.js.map": "/mi-tienda-reactiva/static/js/787.ab7dd4a3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.38be36b0.css",
-    "static/js/main.08a5d800.js"
+    "static/js/main.3ebd2c49.js"
   ]
 }
