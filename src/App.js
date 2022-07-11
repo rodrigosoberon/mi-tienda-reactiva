@@ -4,13 +4,13 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import Contacto from "./components/Contacto";
 import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate} from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
 
 function App() {
   return (
     <CartProvider>
-      <BrowserRouter>
+      <HashRouter>
         <CustomNavbar />
         <Routes>
           <Route path="/" element={<ItemListContainer />} />
@@ -24,7 +24,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </CartProvider>
   );
 }
