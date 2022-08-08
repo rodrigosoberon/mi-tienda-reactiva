@@ -1,7 +1,7 @@
 import ItemCount from "./ItemCount";
 import { Container, Row, Alert, Badge } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { CartContext } from "../context/CartContext";
+import { CartContext } from "../context/cartContext";
 import { useContext, useState } from "react";
 
 function ItemDetail({ item }) {
@@ -17,7 +17,7 @@ function ItemDetail({ item }) {
     addItem(itemToCart);
   };
 
-  const discountPrice = Math.round(item.price * (100 - item.discount) / 100);
+  const discountPrice = Math.round((item.price * (100 - item.discount)) / 100);
 
   return (
     <Row>

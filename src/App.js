@@ -4,8 +4,8 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import Contacto from "./components/Contacto";
 import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
-import { HashRouter, Routes, Route, Navigate} from "react-router-dom";
-import { CartProvider } from "./context/CartContext";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
+import { CartProvider } from "./context/cartContext";
 
 function App() {
   return (

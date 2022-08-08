@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useCartContext } from "../context/CartContext";
+import { useCartContext } from "../context/cartContext";
 import { Navigate } from "react-router-dom";
 import {
   collection,
@@ -104,7 +104,6 @@ function Checkout() {
       <hr />
 
       <Form onSubmit={handleSubmit} className="mb-3">
-
         <Form.Group className="mb-3" controlId="nombre">
           <Form.Label>Nombre y Apellido:</Form.Label>
           <Form.Control
